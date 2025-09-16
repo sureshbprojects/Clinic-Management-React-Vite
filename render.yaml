@@ -2,7 +2,7 @@
 
 services:
   - type: web
-    name: clinic-management-react-vite # Or your service's name
+    name: Clinic-Management-React-Vite # Or your service's name
     env: node
     buildCommand: npm run build
     startCommand: npm start
