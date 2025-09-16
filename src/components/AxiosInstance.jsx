@@ -1,6 +1,9 @@
 import axios from 'axios'
 
-const baseUrl = 'http://127.0.0.1:8000/'
+
+const isDevlopment = import.meta.env.MODE === 'development';
+const baseUrl = isDevlopment ? import.meta.env.VITE_API_BASE_URL_LOCALS :  import.meta.env.VITE_API_BASE_URL_DEPLOYS
+
 
 const AxiosInstance = axios.create({
     baseURL: baseUrl,
