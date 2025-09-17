@@ -1,14 +1,18 @@
 # render.yaml
 
 services:
+  # --- CHANGE ONLY THE LINE BELOW ---
+  # Make sure this name EXACTLY matches your service name in the Render Dashboard
   - type: web
-    name: Clinic-Management-React-Vite # Or your service's name
+    name: clinic-management-react-vite 
+    # --- DO NOT CHANGE ANYTHING BELOW THIS LINE ---
     env: node
     buildCommand: npm run build
     startCommand: npm start
-    staticPublishPath: ./dist # The directory Vite builds to
-    # This is the magic part:
+    # Vite builds its output into a 'dist' directory
+    staticPublishPath: ./dist 
+    # This is the essential part for SPA routing:
     redirects:
-      - type: rewrite
-        source: /.*
+      - type: rewrite # Use 'rewrite', not 'redirect'
+        source: /.*    # This regex matches ALL incoming paths
         destination: /index.html
